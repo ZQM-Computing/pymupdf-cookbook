@@ -11,11 +11,11 @@
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-A **PyMuPDF cookbook** — PDF text, layout, and redaction from Python. Queued in wave-11 (per-node adds). Patterns are planned from the design, not yet from fleet runs. Note for the redaction pass: redaction deletes any line whose box intersects the redact rect, so keep rects clear of neighboring lines. It is intended for Developers who extract and edit PDF documents programmatically. Validate each pattern against your own data, software versions, and operating environment before adopting it.
+A **PyMuPDF cookbook** — PDF text, layout, and redaction from Python. Installed in wave-11 (Node-1 wave11-venv, Wally spot-checked 2026-10-25). First pattern pass written below (design-only, gate 1 target). Note for the redaction pass: redaction deletes any line whose box intersects the redact rect, so keep rects clear of neighboring lines. It is intended for Developers who extract and edit PDF documents programmatically. Validate each pattern against your own data, software versions, and operating environment before adopting it.
 
 ## Repository role and status
 
-**Status:** Active, public — seeding. Pattern passes land in follow-up work from fleet-verified setups; the tables below list what is planned, not what is already written.
+**Status:** Active, public. First pattern pass written (design-only, gate 1 target — none runtime-validated on the fleet yet).
 
 **What this repository is:** PyMuPDF patterns — see the table below.
 
@@ -29,32 +29,35 @@ Developers who extract and edit PDF documents programmatically.
 
 ## Prerequisites
 
-- PyMuPDF in the fleet Python environment
-- Python 3.11+
-- A sample PDF
+- PyMuPDF 2.0 in Node-1's wave11-venv (`C:\geo-tools\wave11-venv`, Python 3.12.10) — invoke the venv Python by full path, never bare `python` (hermes venv); use `import pymupdf` (`fitz` is deprecated)
+- Fixtures are generated at runtime by each pattern (no external PDF needed)
 
-## Patterns (planned)
+## Patterns
 
-| # | Example | What it will demonstrate |
-|---|---------|--------------------------|
-| 01 | `01-text-extract` | Extracting text with layout awareness |
-| 02 | `02-page-ops` | Splitting, merging, and rotating pages |
-| 03 | `03-redaction` | Redacting text safely, with neighbor-line checks |
-| 04 | `04-geo-reporting` | Building geospatial reports as PDFs |
+| # | Example | What it demonstrates | Status |
+|---|---------|----------------------|--------|
+| 01 | [examples/01-text-extract](examples/01-text-extract) | Extracting text with layout awareness | Written (design-only) |
+| 02 | [examples/02-page-ops](examples/02-page-ops) | Splitting, merging, and rotating pages | Written (design-only) |
+| 03 | [examples/03-redaction](examples/03-redaction) | Redacting text safely, with neighbor-line checks | Written (design-only) |
+| 04 | [examples/04-geo-reporting](examples/04-geo-reporting) | Building geospatial reports as PDFs | Written (design-only) |
 
 ## Repository layout
 
 ```text
 pymupdf-cookbook/
-├── examples/          # pattern passes, landing in follow-up work
+├── examples/
+│   ├── 01-text-extract/
+│   ├── 02-page-ops/
+│   ├── 03-redaction/
+│   └── 04-geo-reporting/
 ├── README.md
 └── LICENSE
 ```
 
 ## Roadmap
 
-- First pattern pass: the first two table rows
-- Second pass: the remaining rows, from fleet-verified setups
+- First pattern pass: all four table rows (design-only, gate 1 target)
+- Validation pass: run each pattern against the fleet environment and promote to gate 3
 
 ## Contributing
 
