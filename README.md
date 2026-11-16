@@ -29,6 +29,8 @@ Developers who extract and edit PDF documents programmatically.
 
 ## Prerequisites
 
+Fleet paths and versions below are a historical snapshot from the Oct 2026 creation wave; verify against the current fleet before use.
+
 - PyMuPDF 2.0 in Node-1's wave11-venv (`C:\geo-tools\wave11-venv`, Python 3.12.10) — invoke the venv Python by full path, never bare `python` (hermes venv); use `import pymupdf` (`fitz` is deprecated)
 - Fixtures are generated at runtime by each pattern (no external PDF needed)
 
